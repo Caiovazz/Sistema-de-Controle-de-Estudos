@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Disciplinas</title>
+    <link rel="stylesheet" href="CSS/style.css">
+</head>
+<body>
+    <header class = "main-header">
+        <div class = "container-header">
+            <h1 class = "header-title">Cadastro de Disciplinas</h1>
+        </div>
+    </header> 
+
+    <main class="main-container"> 
+      <div class ="container">
+        <!-- Seção de cadastro de disciplinas -->
+         <section class = "cadastro-disciplinas">
+            <h2>Adicionar Nova Disciplina</h2>
+            <form id="form-disciplina"> 
+               <div class="form-row">
+                    <div class = "form-group">
+                       <label for = "nome-disciplina">Nome da Disciplina:</label>
+                       <input type="text" id="nome-disciplina" name="nome" required maxlength="100">
+                
+                       <small class="error-message" id="error-nome"></small>
+                    </div>
+
+                    <div class = "form-group">
+                       <label for = "codigo-disciplina">Professor Responsável:</label>
+                       <input type="text" id="codigo-disciplina" name="codigo" required maxlength="10">
+                
+                       <small class="error-message" id="error-codigo"></small>
+                    </div>
+                </div>
+                <div class = "form-row">
+                    <div class = "form-group">
+                        <label
+                            for = "carga-horaria">Carga Horária (horas):</label>
+                        <input type="number" id="carga-horaria" name="carga_horaria" required min="1" max="500" placeholder="Ex: 60">
+
+                        <small class="error-message" id="cargaError"></small>
+                    </div>
+
+                    <div class = "form-group">
+                        <label for = "area">Área de Conhecimento:</label>
+                        <input type="text" id="area" name="area" required maxlength="100">
+                        <select id="area" name="area" required>
+                            <option value="">Selecione a área</option>
+                            <option value="exatas">Exatas</option>
+                            <option value="humanas">Humanas</option>
+                            <option value="biologicas">Biológicas</option>
+                            <option value="saude">Saúde</option>
+                            <option value="tecnologia">Tecnologia</option>
+                        </select>
+                        <small class="error-message" id="error-area"></small>
+                    </div>
+                </div>
+
+                <div class = "form-actions">
+                    <button type="submit" class="btn-submit">Cadastrar Disciplina</button>
+                    <button type="reset" class="btn-reset">Limpar Campos</button>
+                </div>
+            </form>
+         </section>
+
+         <!-- Seção de resumo/estatísticas -->
+          <section class = "resumo-disciplinas">
+                <h2>Resumo de Disciplinas</h2>
+          </section>
+      </div>
+    </main>
+
+    <footer>
+
+    </footer>
+
+    <script src="JS/script.js"></script>
+</body>
+</html>
