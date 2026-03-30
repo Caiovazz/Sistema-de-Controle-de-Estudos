@@ -13,10 +13,10 @@
         </div>
     </header> 
 
-    <main class="main-container"> 
+    <main class="main-content"> 
       <div class ="container">
         <!-- Seção de cadastro de disciplinas -->
-         <section class = "cadastro-disciplinas">
+         <section class = "card">
             <h2>Adicionar Nova Disciplina</h2>
             <form id="form-disciplina"> 
                <div class="form-row">
@@ -59,15 +59,22 @@
                 </div>
 
                 <div class = "form-actions">
-                    <button type="submit" class="btn-submit">Cadastrar Disciplina</button>
-                    <button type="reset" class="btn-reset">Limpar Campos</button>
+                    <button type="submit" class=" btn btn-primary">Cadastrar Disciplina</button>
+                    <button type="reset" class=" btn btn-secondary">Limpar Campos</button>
                 </div>
             </form>
          </section>
 
          <!-- Seção de resumo/estatísticas -->
-          <section class = "resumo-disciplinas">
-                <h2>Resumo de Disciplinas</h2>
+          <section class = "stats-section">
+            <h2>Resumo de Estudos</h2>
+            <div class="stats-grid">
+
+                <div class = "stats-card">
+                    <div class = "stat-value" id = "totalDisciplinas">0</div>
+                    <div class = "stat-label">Disciplinas</div>
+                </div>
+
                 <div class = "stats-card">
                     <div class = "stat-value" id = "totalHorasEstudadas">0</div>
                     <div class = "stat-label">Total de Horas Estudadas</div>
@@ -77,6 +84,7 @@
                     <div class = "stat-value" id = "totalDisciplinas">0</div>
                     <div class = "stat-label">Progresso Médio</div>
                 </div>
+            </div>
           </section>
 
           <!-- Seção de Filtro/Busca-->
@@ -86,7 +94,7 @@
                 <h2>Minhas Disciplinas</h2>
                 <div class = "search-box">
                     <input type = "text" id="searchInput" placeholder="Buscar por nome ou Professor">
-                    <button id="clearsearch" class = "bnt-icon" title="Limpar busca" >X</button>
+                    <button id="clearsearch" class = "btn-icon" title="Limpar busca" >X</button>
                 </div>
              </div>
 
@@ -101,45 +109,50 @@
               </div>
           </section>
       </div>
+ 
     </main>
 
-    <div id ="modalHoras" class="modal">
+    <button class="AbrirModalHoras" data-disciplina-id="1">Registrar Horas</button>
+    
+    <!-- Modal para registro de horas de estudo -->
+
+    <div id ="modalHoras" class="modal modal-horas">
         <div class="modal-content">
             <div class="modal-header">
                 <h3>Registrar Horas de Estudo</h3>
                 <button class="modal-close">&times;</button>
-          
-        </div>
-        <div class="modal-body">
-            <div id="modalDisciplinaInfo" class="disciplina-info"></div>
-            <form id="formHoras">
-                <div class="form-group">
-                    <label for="horasEstudadas">Horas Estudadas Hoje:</label>
-                    <input type="number" id="horasEstudadas" name="horas_estudo" required step="0.5" min="0" max="24" placeholder="Ex: 2">
-                    <small> Digite valores como: 0.5, 1, 1.5, 2, etc.</small>
-                </div>
-                <div class="form-group">
-                    <label for="dataEstudo">Data do Estudo:</label>
-                    <input type="date" id="dataEstudo" required>
-                </div>
-                <div class="form-group">
-                    <label for="observacoes">Observações (opcional):</label>
-                    <textarea id="observacao" rows="2" placeholder="Ex: Revisão de conteudo, resolução de exercicios"></textarea>
-                </div>
-                <div class="form-actions">
-                    <button type="submit" class="btn-submit">Registrar Horas</button>
-                    <button type="button" class="btn-reset modal-close">Cancelar</button>
-                </div>
-            </form>
-            <div id="historicoEstudos" class="historico-estudos">
-                <h4>Historico de Estudos</h4>
-                <div id="listaHistorico">
-                </div>
+            </div>
+        
+            <div class="modal-body">
+                <div id="modalDisciplinaInfo" class="disciplina-info"></div>
+                <form id="formHoras">
+                    <div class="form-group">
+                         <label for="horasEstudadas">Horas Estudadas Hoje:</label>
+                         <input type="number" id="horasEstudadas" name="horas_estudo" required step="0.5" min="0" max="24" placeholder="Ex: 2">
+                         <small> Digite valores como: 0.5, 1, 1.5, 2, etc.</small>
+                    </div>
+                    <div class="form-group">
+                         <label for="dataEstudo">Data do Estudo:</label>
+                         <input type="date" id="dataEstudo" required>
+                    </div>
+                    <div class="form-group">
+                         <label for="observacoes">Observações (opcional):</label>
+                         <textarea id="observacao" rows="2" placeholder="Ex: Revisão de conteudo, resolução de exercicios"></textarea>
+                    </div>
+                    <div class="form-actions">
+                         <button type="submit" class="btn-submit">Registrar Horas</button>
+                         <button type="button" class="btn-reset modal-close">Cancelar</button>
+                    </div>
+                </form>
+                    <div id="historicoEstudos" class="historico-estudos">
+                     <h4>Historico de Estudos</h4>
+                    <div id="listaHistorico">
             </div>
         </div>
     </div>
+
     <!--Modal de edição de disciplinas-->
-    <div id="modalEdicao" class="modal">
+    <div id="modalEdicao" class="modal modal-edicao">
         <div class="modal-content">
             <div class="modal-header">
                 <h3>Editar Disciplina</h3>
@@ -177,11 +190,11 @@
             </div>
         </div>
     </div>
+
     <footer class="main-footer">
         <div class="conteiner-footer">
            <p>Desenvolvido por: Caio Vaz</p>
         </div>
-
     </footer>
 
     <script src="JS/script.js"></script>
