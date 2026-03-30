@@ -41,7 +41,6 @@ body{
 .container-header{
     display: flex;
     margin: auto;
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
     justify-content: center;
 }
  
