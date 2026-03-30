@@ -411,7 +411,7 @@ body{
     max-width: 500px;
     margin: 50px auto;
     box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.3);
-    animation: slideDown 0.3s ease;
+    animation: slideIn 0.3s ease;
 
 }
 
