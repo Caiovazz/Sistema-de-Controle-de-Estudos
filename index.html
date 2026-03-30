@@ -1,200 +1,183 @@
+
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema de Controle de Estudos</title>
-    <link rel="stylesheet" href="CSS/style.css">
-</head>
-<body>
-    <header class = "main-header">
-        <div class = "container-header">
-            <h1 class = "header-title">Sistema de Controle de Estudos</h1>
-        </div>
-    </header> 
-
-    <main class="main-content"> 
-      <div class ="container">
-        <!-- Seção de cadastro de disciplinas -->
-         <section class = "card">
-            <h2>Adicionar Nova Disciplina</h2>
-            <form id="form-disciplina"> 
-               <div class="form-row">
-                    <div class = "form-group">
-                       <label for = "nome-disciplina">Nome da Disciplina:</label>
-                       <input type="text" id="nome-disciplina" name="nome" required maxlength="100">
-                
-                       <small class="error-message" id="error-nome"></small>
-                    </div>
-
-                    <div class = "form-group">
-                       <label for = "codigo-disciplina">Professor Responsável:</label>
-                       <input type="text" id="codigo-disciplina" name="codigo" required maxlength="10">
-                
-                       <small class="error-message" id="error-codigo"></small>
-                    </div>
-                </div>
-                <div class = "form-row">
-                    <div class = "form-group">
-                        <label
-                            for = "carga-horaria">Carga Horária (horas):</label>
-                        <input type="number" id="carga-horaria" name="carga_horaria" required min="1" max="500" placeholder="Ex: 60">
-
-                        <small class="error-message" id="cargaError"></small>
-                    </div>
-
-                    <div class = "form-group">
-                        <label for = "area">Área de Conhecimento:</label>
-                        <input type="text" id="areaOutro" name="area" required maxlength="100">
-                        <select id="areaSelect" name="area" required>
-                            <option value="">Selecione a área</option>
-                            <option value="exatas">Exatas</option>
-                            <option value="humanas">Humanas</option>
-                            <option value="biologicas">Biológicas</option>
-                            <option value="saude">Saúde</option>
-                            <option value="tecnologia">Tecnologia</option>
-                            <option value="outros">Outros</option>
-                        </select>
-                        <small class="error-message" id="error-area"></small>
-                    </div>
-                </div>
-
-                <div class = "form-actions">
-                    <button type="submit" class=" btn btn-primary">Cadastrar Disciplina</button>
-                    <button type="reset" class=" btn btn-secondary">Limpar Campos</button>
-                </div>
-            </form>
-         </section>
-
-         <!-- Seção de resumo/estatísticas -->
-          <section class = "stats-section">
-            <h2>Resumo de Estudos</h2>
-            <div class="stats-grid">
-
-                <div class = "stats-card">
-                    <div class = "stat-value" id = "totalDisciplinas">0</div>
-                    <div class = "stat-label">Disciplinas</div>
-                </div>
-
-                <div class = "stats-card">
-                    <div class = "stat-value" id = "totalHorasEstudadas">0</div>
-                    <div class = "stat-label">Total de Horas Estudadas</div>
-                </div>
-
-                <div class = "stats-card">
-                    <div class = "stat-value" id = "progressoMedio">0</div>
-                    <div class = "stat-label">Progresso Médio</div>
-                </div>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Cadastro de Disciplinas</title>
+        <link rel="stylesheet" href="CSS/style.css" />
+    </head>
+    <body>
+        <header class="main-header">
+            <div class="container-header">
+                <h1 class="header-title">Sistema de Controle de Estudos</h1>
             </div>
-          </section>
+        </header>
 
-          <!-- Seção de Filtro/Busca-->
+        <main class="main-content">
+            <div class="container">
+                <!-- Seção de cadastro de disciplinas -->
+                <section class="card">
+                    <h2>Adicionar Nova Disciplina</h2>
+                    <form id="form-disciplina">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="nome-disciplina">Nome da Disciplina:</label>
+                                <input type="text" id="nome-disciplina" name="nome" required maxlength="100" />
+                                <small class="error-message" id="error-nome"></small>
+                            </div>
+                            <div class="form-group">
+                                <label for="codigo-disciplina">Professor Responsável:</label>
+                                <input type="text" id="codigo-disciplina" name="codigo" required maxlength="10" />
+                                <small class="error-message" id="error-codigo"></small>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="carga-horaria">Carga Horária (horas):</label>
+                                <input type="number" id="carga-horaria" name="carga_horaria" required min="1" max="500" placeholder="Ex: 60" />
+                                <small class="error-message" id="cargaError"></small>
+                            </div>
+                            <div class="form-group">
+                                <label for="area">Área de Conhecimento:</label>
+                                <input type="text" id="areaOutro" name="area" required maxlength="100" />
+                                <select id="areaSelect" name="area" required>
+                                    <option value="">Selecione a área</option>
+                                    <option value="exatas">Exatas</option>
+                                    <option value="humanas">Humanas</option>
+                                    <option value="biologicas">Biológicas</option>
+                                    <option value="saude">Saúde</option>
+                                    <option value="tecnologia">Tecnologia</option>
+                                    <option value="outros">Outros</option>
+                                </select>
+                                <small class="error-message" id="error-area"></small>
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary">Cadastrar Disciplina</button>
+                            <button type="reset" class="btn btn-secondary">Limpar Campos</button>
+                        </div>
+                    </form>
+                </section>
 
-          <section class="card">
-             <div class = "search-header">
-                <h2>Minhas Disciplinas</h2>
-                <div class = "search-box">
-                    <input type = "text" id="searchInput" placeholder="Buscar por nome ou Professor">
-                    <button id="clearsearch" class = "btn-icon" title="Limpar busca" >X</button>
-                </div>
-             </div>
+                <!-- Seção de resumo/estatísticas -->
+                <section class="stats-section">
+                    <h2>Resumo de Estudos</h2>
+                    <div class="stats-grid">
+                        <div class="stats-card">
+                            <div class="stat-value" id="totalDisciplinas">0</div>
+                            <div class="stat-label">Disciplinas</div>
+                        </div>
+                        <div class="stats-card">
+                            <div class="stat-value" id="totalHorasEstudadas">0</div>
+                            <div class="stat-label">Total de Horas Estudadas</div>
+                        </div>
+                        <div class="stats-card">
+                            <div class="stat-value" id="progressoMedio">0</div>
+                            <div class="stat-label">Progresso Médio</div>
+                        </div>
+                    </div>
+                </section>
 
-            <!-- Container para listagem de disciplinas-->
-
-              <div id = "DisciplinasContainer" class = "disciplinas-container">
-                  <div class = "empty-state">
-                     <p>Nenhuma disciplina encontrada.</p>
-
-                     <p>Começe cadastrando uma nova disciplina.</p>
-                  </div>
-              </div>
-          </section>
-      </div>
- 
-    </main>
-    
-    <!-- Modal para registro de horas de estudo -->
-
-    <div id ="modalHoras" class="modal modal-horas">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>Registrar Horas de Estudo</h3>
-                <button class="modal-close">&times;</button>
+                <!-- Seção de Filtro/Busca-->
+                <section class="card">
+                    <div class="search-header">
+                        <h2>Minhas Disciplinas</h2>
+                        <div class="search-box">
+                            <input type="text" id="searchInput" placeholder="Buscar por nome ou Professor" />
+                            <button id="clearsearch" class="btn-icon" title="Limpar busca">X</button>
+                        </div>
+                    </div>
+                    <!-- Container para listagem de disciplinas-->
+                    <div id="DisciplinasContainer" class="disciplinas-container">
+                        <div class="empty-state">
+                            <p>Nenhuma disciplina encontrada.</p>
+                            <p>Começe cadastrando uma nova disciplina.</p>
+                        </div>
+                    </div>
+                </section>
             </div>
-        
-            <div class="modal-body">
-                <div id="modalDisciplinaInfo" class="disciplina-info"></div>
-                <form id="formHoras">
-                    <div class="form-group">
-                         <label for="horasEstudadas">Horas Estudadas Hoje:</label>
-                         <input type="number" id="horasEstudadas" name="horas_estudo" required step="0.5" min="0" max="24" placeholder="Ex: 2">
-                         <small> Digite valores como: 0.5, 1, 1.5, 2, etc.</small>
-                    </div>
-                    <div class="form-group">
-                         <label for="dataEstudo">Data do Estudo:</label>
-                         <input type="date" id="dataEstudo" required>
-                    </div>
-                    <div class="form-group">
-                         <label for="observacoes">Observações (opcional):</label>
-                         <textarea id="observacao" rows="2" placeholder="Ex: Revisão de conteudo, resolução de exercicios"></textarea>
-                    </div>
-                    <div class="form-actions">
-                         <button type="submit" class="btn-submit">Registrar Horas</button>
-                         <button type="button" class="btn-reset modal-close">Cancelar</button>
-                    </div>
-                </form>
+        </main>
+
+        <!-- Modal para registro de horas de estudo -->
+        <div id="modalHoras" class="modal modal-horas">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Registrar Horas de Estudo</h3>
+                    <button class="modal-close">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div id="modalDisciplinaInfo" class="disciplina-info"></div>
+                    <form id="formHoras">
+                        <div class="form-group">
+                            <label for="horasEstudadas">Horas Estudadas Hoje:</label>
+                            <input type="number" id="horasEstudadas" name="horas_estudo" required step="0.5" min="0" max="24" placeholder="Ex: 2" />
+                            <small>Digite valores como: 0.5, 1, 1.5, 2, etc.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="dataEstudo">Data do Estudo:</label>
+                            <input type="date" id="dataEstudo" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="observacoes">Observações (opcional):</label>
+                            <textarea id="observacao" rows="2" placeholder="Ex: Revisão de conteudo, resolução de exercicios"></textarea>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn-submit">Registrar Horas</button>
+                            <button type="button" class="btn-reset modal-close">Cancelar</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
 
-
-    <!--Modal de edição de disciplinas-->
-    <div id="modalEdicao" class="modal modal-edicao">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>Editar Disciplina</h3>
-                <button class="modal-close">&times;</button>
-            </div>
-            <div class="modal-body">
-                <form id="formEdicao">
-                    <div class="form-group">
-                        <label for="nomeDisciplinaEdit">Nome da Disciplina:</label>
-                        <input type="text" id="nomeDisciplinaEdit" name="nome" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="professorEdit">Professor:</label>
-                        <input type="text" id="professorEdit" name="professor" required>
-                    </div>
-                    <div class="form-actions">
-                        <label for="editCargaHoraria">Carga Horária Total:</label>
-                        <input type="number" id="editCargaHoraria" name="carga_horaria" required step="0.5" min="0">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="editArea">Área do Conhecimento:</label>
-                        <select id="editArea" name="area" required>
-                            <option value="">Selecione a área</option>
-                            <option value="exatas">Exatas</option>
-                            <option value="humanas">Humanas</option>
-                            <option value="biologicas">Biológicas</option>
-                            <option value="tecnologia">Tecnologia</option>
-                        </select>
-                    </div>
-                    <div class="form-actions">
-                        <button type="submit" class="btn-submit">Salvar Alterações</button>
-                        <button type="button" class="btn-reset modal-close">Cancelar</button>
-                    </div>
-                </form>
+        <!--Modal de edição de disciplinas-->
+        <div id="modalEdicao" class="modal modal-edicao">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Editar Disciplina</h3>
+                    <button class="modal-close">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <form id="formEdicao">
+                        <div class="form-group">
+                            <label for="nomeDisciplinaEdit">Nome da Disciplina:</label>
+                            <input type="text" id="nomeDisciplinaEdit" name="nome" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="professorEdit">Professor:</label>
+                            <input type="text" id="professorEdit" name="professor" required />
+                        </div>
+                        <div class="form-actions">
+                            <label for="editCargaHoraria">Carga Horária Total:</label>
+                            <input type="number" id="editCargaHoraria" name="carga_horaria" required step="0.5" min="0" />
+                        </div>
+                        <div class="form-group">
+                            <label for="editArea">Área do Conhecimento:</label>
+                            <select id="editArea" name="area" required>
+                                <option value="">Selecione a área</option>
+                                <option value="exatas">Exatas</option>
+                                <option value="humanas">Humanas</option>
+                                <option value="biologicas">Biológicas</option>
+                                <option value="tecnologia">Tecnologia</option>
+                            </select>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn-submit">Salvar Alterações</button>
+                            <button type="button" class="btn-reset modal-close">Cancelar</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
-    <!-- rodapé -->
-    <footer class="main-footer">
-        <div class="container-footer">
-           <p>Desenvolvido por: Caio Vaz</p>
-        </div>
-    </footer>
 
-    <script src="JS/script.js"></script>
-</body>
+        <!-- rodapé -->
+        <footer class="main-footer">
+            <div class="container-footer">
+                <p>Desenvolvido por: Caio Vaz</p>
+            </div>
+        </footer>
+
+        <script src="JS/script.js"></script>
+    </body>
 </html>
