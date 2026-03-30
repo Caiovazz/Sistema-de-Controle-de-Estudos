@@ -207,9 +207,8 @@ formEdicao.addEventListener("submit", function(e){
 })
 
 
-// ===============================
 // FECHAR MODAIS
-// ===============================
+
 
 document.querySelectorAll(".modal-close").forEach(btn=>{
     btn.addEventListener("click", ()=>{
