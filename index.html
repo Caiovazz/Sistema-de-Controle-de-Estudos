@@ -113,6 +113,7 @@
     </main>
 
     <button class="AbrirModalHoras" data-disciplina-id="1">Registrar Horas</button>
+    <button class="AbrirModalEdicao" data-disciplina-id="1">Editar Disciplina</button>
     
     <!-- Modal para registro de horas de estudo -->
 
@@ -145,11 +146,13 @@
                     </div>
                 </form>
                     <div id="historicoEstudos" class="historico-estudos">
-                     <h4>Historico de Estudos</h4>
-                    <div id="listaHistorico">
+                       <h4>Historico de Estudos</h4>
+                       <div id="listaHistorico"></div>
+                    </div>
             </div>
         </div>
     </div>
+
 
     <!--Modal de edição de disciplinas-->
     <div id="modalEdicao" class="modal modal-edicao">
@@ -186,13 +189,14 @@
                     <div class="form-actions">
                         <button type="submit" class="btn-submit">Salvar Alterações</button>
                         <button type="button" class="btn-reset modal-close">Cancelar</button>
+                    </div>
                 </form>
             </div>
         </div>
     </div>
 
     <footer class="main-footer">
-        <div class="conteiner-footer">
+        <div class="container-footer">
            <p>Desenvolvido por: Caio Vaz</p>
         </div>
     </footer>
