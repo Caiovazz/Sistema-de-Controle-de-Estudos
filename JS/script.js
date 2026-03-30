@@ -212,26 +212,56 @@ function abrirEdicao(id){
     document.getElementById("nomeDisciplinaEdit").value = disciplinaAtual.nome
     document.getElementById("professorEdit").value = disciplinaAtual.professor
     document.getElementById("editCargaHoraria").value = disciplinaAtual.cargaHoraria
-    document.getElementById("editArea").value = disciplinaAtual.area
+
+    const editArea = document.getElementById("editArea");
+    const editAreaOutro = document.getElementById("editAreaOutro");
+
+    // Se for uma das opções, seleciona, senão mostra campo texto
+    if (["exatas","humanas","biologicas","tecnologia"].includes(disciplinaAtual.area)) {
+        editArea.value = disciplinaAtual.area;
+        editAreaOutro.style.display = "none";
+        editAreaOutro.value = "";
+    } else {
+        editArea.value = "outros";
+        editAreaOutro.style.display = "block";
+        editAreaOutro.value = disciplinaAtual.area;
+    }
 
     modalEdicao.style.display = "block"
 
 }
 
+
+// Lógica para mostrar/esconder campo texto no select do modal edição
+const editArea = document.getElementById("editArea");
+const editAreaOutro = document.getElementById("editAreaOutro");
+editArea.addEventListener("change", function() {
+    if(editArea.value === "outros") {
+        editAreaOutro.style.display = "block";
+        editAreaOutro.setAttribute("required", "required");
+    } else {
+        editAreaOutro.style.display = "none";
+        editAreaOutro.removeAttribute("required");
+    }
+});
+
 formEdicao.addEventListener("submit", function(e){
-
     e.preventDefault()
-
     disciplinaAtual.nome = document.getElementById("nomeDisciplinaEdit").value
     disciplinaAtual.professor = document.getElementById("professorEdit").value
     disciplinaAtual.cargaHoraria = Number(document.getElementById("editCargaHoraria").value)
-    disciplinaAtual.area = document.getElementById("editArea").value
-
+    let area = editArea.value;
+    if(area === "outros"){
+        area = editAreaOutro.value.trim();
+        if(area === ""){
+            alert("Por favor, preencha a área de conhecimento.");
+            return;
+        }
+    }
+    disciplinaAtual.area = area;
     salvarDados()
     renderDisciplinas()
-
     modalEdicao.style.display = "none"
-
 })
 
 
