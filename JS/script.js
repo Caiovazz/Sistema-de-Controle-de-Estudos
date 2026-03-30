@@ -46,7 +46,21 @@ function salvarDados(){
 
 
 // CADASTRAR DISCIPLINA
+const areaSelect = document.getElementById("areaSelect")
+const areaOutro = document.getElementById("areaOutro")
+areaOutro.style.display = "none"
 
+areaSelect.addEventListener("change", function(){
+
+    if(areaSelect.value === "outros"){
+        areaOutro.style.display = "block"
+        areaOutro.setAttribute("required", "required")
+    }else{
+        areaOutro.style.display = "none"
+        areaOutro.removeAttribute("required")
+    }
+
+})
 
 formDisciplina.addEventListener("submit", function(e){
 
@@ -55,7 +69,16 @@ formDisciplina.addEventListener("submit", function(e){
     const nome = document.getElementById("nome-disciplina").value
     const professor = document.getElementById("codigo-disciplina").value
     const carga = document.getElementById("carga-horaria").value
-    const area = document.querySelector("#area").value
+    let area = areaSelect.value
+
+    if(area === "outros"){
+        area = areaOutro.value.trim()
+
+        if(area === ""){
+            alert("Por favor, preencha a área de conhecimento.")
+            return
+        }
+    }
 
     const novaDisciplina = {
         id: Date.now(),
@@ -72,6 +95,9 @@ formDisciplina.addEventListener("submit", function(e){
     renderDisciplinas()
 
     formDisciplina.reset()
+
+    areaOutro.style.display = "none"
+    areaSelect.value = ""
 
 })
 
@@ -94,6 +120,7 @@ function renderDisciplinas(){
         <div class="empty-state">
         <p>Nenhuma disciplina cadastrada</p>
         </div>`
+
         return
     }
 
@@ -135,6 +162,7 @@ function excluirDisciplina(id){
 
     salvarDados()
     renderDisciplinas()
+    atualizarStats()
 
 }
 
